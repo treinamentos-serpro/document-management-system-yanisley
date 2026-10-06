@@ -56,6 +56,7 @@ function downloadDocument(req, res) {
   res.type(download.document.contentType);
   return res.download(download.filePath, download.document.originalName, (error) => {
     if (error && !res.headersSent) {
+      res.type('application/json');
       res.status(500).json({
         error: {
           code: 'DOWNLOAD_FAILED',
