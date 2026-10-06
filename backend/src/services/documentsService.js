@@ -1,10 +1,6 @@
 const { randomUUID } = require('node:crypto');
 const documentsRepository = require('../repositories/documentsRepository');
-
-function toPublicDocument(document) {
-  const { storageName, ...publicDocument } = document;
-  return publicDocument;
-}
+const { toPublicDocument } = require('./documentsMapper');
 
 function createDocument(file, owner) {
   const document = documentsRepository.create({
