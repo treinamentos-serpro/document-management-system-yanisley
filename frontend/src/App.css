@@ -1,0 +1,400 @@
+:root {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  color: #202b27;
+  background: #f2f5f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #202b27;
+  --muted: #68736d;
+  --line: #d8dfd9;
+  --forest: #174b3b;
+  --forest-deep: #10392d;
+  --leaf: #d9e8dc;
+  --clay: #a34c31;
+  --paper: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background-image: linear-gradient(90deg, rgba(23, 75, 59, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.topbar {
+  border-top: 5px solid #bd6b43;
+  color: #f5f8f4;
+  background: var(--forest-deep);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: min(100% - 48px, 1040px);
+  min-height: 112px;
+  margin: 0 auto;
+}
+
+.brand-mark {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(245, 248, 244, 0.45);
+  border-radius: 3px;
+  color: #f0c4a4;
+  font: 26px Georgia, serif;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #729381;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.topbar .eyebrow {
+  color: #b4c9bc;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.identity-form {
+  display: grid;
+  gap: 7px;
+  width: min(340px, 42%);
+  margin-left: auto;
+  color: #dce8df;
+  font-size: 12px;
+}
+
+.identity-controls {
+  display: flex;
+  min-width: 0;
+  gap: 8px;
+}
+
+.identity-controls input {
+  min-width: 0;
+  width: 100%;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #527263;
+  border-radius: 3px;
+  color: #fff;
+  background: #214e3f;
+}
+
+.quiet-button,
+.primary-button,
+.download-button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quiet-button {
+  color: var(--forest-deep);
+  background: #eff4ee;
+}
+
+.content {
+  width: min(100% - 48px, 880px);
+  margin: 0 auto;
+  padding: 42px 0 80px;
+}
+
+.upload-section,
+.documents-section {
+  padding: 0 0 34px;
+}
+
+.documents-section {
+  padding-top: 8px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 25px;
+}
+
+.limit-note {
+  padding-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.upload-form {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  padding: 16px;
+  border: 1px dashed #9caf9f;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.83);
+}
+
+.file-picker {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.file-picker:focus-within .file-picker-icon {
+  outline: 2px solid var(--clay);
+  outline-offset: 2px;
+}
+
+.file-picker-icon {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 3px;
+  color: var(--forest);
+  background: var(--leaf);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.file-picker-copy {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.file-picker-copy strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-picker-copy span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.primary-button {
+  min-height: 42px;
+  color: #fff;
+  background: var(--forest);
+}
+
+.primary-button:hover:not(:disabled),
+.download-button:hover:not(:disabled) {
+  background: var(--forest-deep);
+}
+
+.list-heading {
+  align-items: center;
+  margin: 18px 0 12px;
+}
+
+.refresh-button {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--forest);
+  background: var(--paper);
+  font-size: 22px;
+}
+
+.document-list {
+  border-top: 1px solid var(--line);
+}
+
+.document-row {
+  display: flex;
+  align-items: center;
+  min-height: 76px;
+  gap: 14px;
+  padding: 12px 2px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.document-symbol {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #d2ded3;
+  border-radius: 3px;
+  color: var(--forest);
+  background: #edf3ed;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.document-details {
+  min-width: 0;
+  flex: 1;
+}
+
+.document-details h3 {
+  overflow: hidden;
+  margin: 0 0 5px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.document-details p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.download-button {
+  min-height: 34px;
+  border: 1px solid #b8c9bb;
+  color: var(--forest);
+  background: #f7faf6;
+}
+
+.download-button:hover:not(:disabled) {
+  color: #fff;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 28px 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.58);
+  font-size: 14px;
+  text-align: center;
+}
+
+.status-message,
+.error-message {
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+
+.status-message {
+  color: var(--forest);
+}
+
+.error-message {
+  color: #9b382a;
+}
+
+@media (max-width: 620px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    width: min(100% - 32px, 1040px);
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .identity-form {
+    width: 100%;
+    margin: 6px 0 0;
+  }
+
+  .content {
+    width: min(100% - 32px, 880px);
+    padding-top: 30px;
+  }
+
+  .upload-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .file-picker {
+    min-height: 48px;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .limit-note {
+    max-width: 90px;
+    text-align: right;
+  }
+}
